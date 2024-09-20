@@ -1,0 +1,623 @@
+{
+    "name": "logz-io",
+    "version": "1.0.0",
+    "label": "Logz.io",
+    "description": "Logz.io delivers unified, full stack observability and security as a fully-managed SaaS based on best-of-breed open source. The Open 360 platform brings together logs, metrics, traces, and security data, applying powerful AI/ML features to improve troubleshooting, reduce response times, and help manage costs.",
+    "publisher": "SpryIQ.co",
+    "icon_small_name": "small.png",
+    "icon_large_name": "large.png",
+    "help_online": "https://github.com/jitesh-spryiq/connector-logz-io/blob/develop/docs/LogzIoDoc.md",
+    "category": [
+        "Analytics and SIEM"
+    ],
+    "configuration": {
+        "fields": [
+            {
+                "title": "Server URL",
+                "type": "text",
+                "name": "server_url",
+                "required": true,
+                "visible": true,
+                "editable": true,
+                "value": "",
+                "tooltip": "Specify the URL of the logz.io server to connect and perform automated operations.",
+                "description": "Specify the URL of the logz.io server to connect and perform automated operations."
+            },
+            {
+                "title": "API key",
+                "type": "password",
+                "name": "api_key",
+                "required": true,
+                "visible": true,
+                "editable": true,
+                "value": "",
+                "tooltip": "Specify the API key to access the endpoint to which you will connect and perform the automated operations.",
+                "description": "Specify the API key to access the endpoint to which you will connect and perform the automated operations."
+            }
+        ]
+    },
+    "operations": [
+        {
+            "title": "Retrieve All Alerts",
+            "operation": "retrieve_all_alerts",
+            "description": "Returns the complete list of all alerts configured for the account.",
+            "annotation": "retrieve_all_alerts",
+            "category": "investigation",
+            "output_schema": [
+                [
+                    {
+                        "id": "",
+                        "updatedAt": "",
+                        "updatedBy": "",
+                        "createdAt": "",
+                        "createdBy": "",
+                        "enabled": "",
+                        "title": "",
+                        "description": "",
+                        "tags": [],
+                        "output": {
+                            "recipients": {
+                                "emails": [],
+                                "notificationEndpointIds": []
+                            },
+                            "suppressNotificationsMinutes": "",
+                            "type": ""
+                        },
+                        "searchTimeFrameMinutes": "",
+                        "subComponents": [
+                            {
+                                "queryDefinition": {
+                                    "query": "",
+                                    "filters": {
+                                        "bool": {
+                                            "must": [
+                                                {
+                                                    "match_phrase": {
+                                                        "Field": {
+                                                            "query": ""
+                                                        }
+                                                    }
+                                                }
+                                            ],
+                                            "must_not": [
+                                                {
+                                                    "match_phrase": {
+                                                        "Field": {
+                                                            "query": ""
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "groupBy": [],
+                                    "aggregation": {
+                                        "aggregationType": "",
+                                        "fieldToAggregateOn": "",
+                                        "valueToAggregateOn": ""
+                                    },
+                                    "shouldQueryOnAllAccounts": "",
+                                    "accountIdsToQueryOn": []
+                                },
+                                "trigger": {
+                                    "operator": "",
+                                    "severityThresholdTiers": {
+                                        "MEDIUM": "",
+                                        "HIGH": "",
+                                        "SEVERE": ""
+                                    }
+                                },
+                                "output": {
+                                    "shouldUseAllFields": ""
+                                }
+                            }
+                        ],
+                        "correlations": {
+                            "correlationOperators": [
+                                ""
+                            ],
+                            "joins": [
+                                {
+                                    "0": "",
+                                    "1": ""
+                                }
+                            ]
+                        },
+                        "schedule": {
+                            "cronExpression": "",
+                            "timezone": ""
+                        }
+                    }
+                ]
+            ],
+            "parameters": [],
+            "open": false
+        },
+        {
+            "title": "Retrieve Alert By ID",
+            "operation": "retrieve_alert_by_id",
+            "description": "Returns alert details by alert ID.",
+            "annotation": "retrieve_alert_by_id",
+            "category": "investigation",
+            "output_schema": [
+                [
+                    {
+                        "id": "",
+                        "updatedAt": "",
+                        "updatedBy": "",
+                        "createdAt": "",
+                        "createdBy": "",
+                        "enabled": "",
+                        "title": "",
+                        "description": "",
+                        "tags": [],
+                        "output": {
+                            "recipients": {
+                                "emails": [],
+                                "notificationEndpointIds": []
+                            },
+                            "suppressNotificationsMinutes": "",
+                            "type": ""
+                        },
+                        "searchTimeFrameMinutes": "",
+                        "subComponents": [
+                            {
+                                "queryDefinition": {
+                                    "query": "",
+                                    "filters": {
+                                        "bool": {
+                                            "must": [
+                                                {
+                                                    "match_phrase": {
+                                                        "Field": {
+                                                            "query": ""
+                                                        }
+                                                    }
+                                                }
+                                            ],
+                                            "must_not": [
+                                                {
+                                                    "match_phrase": {
+                                                        "Field": {
+                                                            "query": ""
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "groupBy": [],
+                                    "aggregation": {
+                                        "aggregationType": "",
+                                        "fieldToAggregateOn": "",
+                                        "valueToAggregateOn": ""
+                                    },
+                                    "shouldQueryOnAllAccounts": "",
+                                    "accountIdsToQueryOn": []
+                                },
+                                "trigger": {
+                                    "operator": "",
+                                    "severityThresholdTiers": {
+                                        "MEDIUM": "",
+                                        "HIGH": "",
+                                        "SEVERE": ""
+                                    }
+                                },
+                                "output": {
+                                    "shouldUseAllFields": ""
+                                }
+                            }
+                        ],
+                        "correlations": {
+                            "correlationOperators": [
+                                ""
+                            ],
+                            "joins": [
+                                {
+                                    "0": "",
+                                    "1": ""
+                                }
+                            ]
+                        },
+                        "schedule": {
+                            "cronExpression": "",
+                            "timezone": ""
+                        }
+                    }
+                ]
+            ],
+            "parameters": [
+                {
+                    "title": "Alert ID",
+                    "type": "integer",
+                    "name": "alert_id",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "description":  "Specify Unique identifier of the alert in Logz.io.",
+                    "value": "",
+                    "placeholder": "e.g.: 18235475",
+                    "tooltip": "Specify Unique identifier of the alert in Logz.io."
+                }
+            ],
+            "open": false
+        },
+        {
+            "title": "Enable Alert By ID",
+            "operation": "enable_alert_by_id",
+            "description": "Enables an alert by its alert ID. This is reversible. The alert can be disabled again at any time.",
+            "annotation": "enable_alert_by_id",
+            "category": "investigation",
+            "output_schema": [],
+            "parameters": [
+                {
+                    "title": "Alert ID",
+                    "type": "integer",
+                    "name": "alert_id",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "description": "Specify Unique identifier of the alert in Logz.io.",
+                    "value": "",
+                    "placeholder": "e.g.: 18235475",
+                    "tooltip": "Specify Unique identifier of the alert in Logz.io."
+                }
+            ],
+            "open": false
+        },
+        {
+            "title": "Disable Alert By ID",
+            "operation": "disable_alert_by_id",
+            "description": "Disables an alert by its alert ID. This is reversible. The alert can be enabled again at any time.",
+            "annotation": "disable_alert_by_id",
+            "category": "investigation",
+            "output_schema": [],
+            "parameters": [
+                {
+                    "title": "Alert ID",
+                    "type": "integer",
+                    "name": "alert_id",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "value": "",
+                    "description":"Specify Unique identifier of the alert in Logz.io.",
+                    "placeholder": "e.g.: 18235475",
+                    "tooltip": "Specify Unique identifier of the alert in Logz.io."
+                }
+            ],
+            "open": false
+        },
+        {
+            "title": "Search Logs",
+            "operation": "search_logs",
+            "description": "Searches your account data using the Elasticsearch Search API DSL query language. total: This call returns up to 1,000 results per query for aggregated results, or 10,000 results for non-aggregated results.",
+            "annotation": "search_logs",
+            "category": "investigation",
+            "output_schema": [],
+            "parameters": [
+                {
+                    "title": "Query",
+                    "type": "json",
+                    "description": "The query can take any of the parameters described in the Elasticsearch Search API DSL documentation",
+                    "name": "query",
+                    "required": false,
+                    "visible": true,
+                    "editable": true,
+                    "value": "",
+                    "placeholder": "{'query': {'bool': {}}}",
+                    "tooltip": "The query can take any of the parameters described in the Elasticsearch Search API DSL documentation."
+                }
+            ]
+        },
+        {
+            "title": "Get List Of Insights",
+            "operation": "get_list_of_insights",
+            "description": "Get the list of Insights that match your search criteria.",
+            "annotation": "get_list_of_insights",
+            "category": "investigation",
+            "output_schema": [
+                {
+                    "pageSize": "",
+                    "from": "",
+                    "total": "",
+                    "results": [
+                        {
+                            "insightId": "",
+                            "insightType": "",
+                            "tagName": "",
+                            "description": "",
+                            "links": "",
+                            "additionalData": "",
+                            "firstOccurrence": "",
+                            "lastOccurrence": "",
+                            "count": "",
+                            "logTypes": [
+                                ""
+                            ],
+                            "kibanaLink": "",
+                            "insightTitle": ""
+                        }
+                    ]
+                }
+            ],
+            "parameters": [
+                {
+                    "title": "Start Date",
+                    "type": "integer",
+                    "name": "startDate",
+                    "required": false,
+                    "visible": true,
+                    "editable": true,
+                    "value": "",
+                    "placeholder": "1722242230",
+                    "tooltip": "UNIX timestamp in milliseconds specifying the start date for the query time frame.",
+                    "description": "UNIX timestamp in milliseconds specifying the start date for the query time frame."
+                },
+                {
+                    "title": "End Date",
+                    "type": "integer",
+                    "name": "endDate",
+                    "required": false,
+                    "visible": true,
+                    "editable": true,
+                    "value": "",
+                    "placeholder": "1722242232",
+                    "tooltip": "UNIX timestamp in milliseconds specifying the end date for the query time frame.",
+                    "description": "UNIX timestamp in milliseconds specifying the end date for the query time frame."
+                },
+                {
+                    "title": "From",
+                    "type": "integer",
+                    "name": "from",
+                    "required": false,
+                    "visible": true,
+                    "editable": true,
+                    "value": "0",
+                    "tooltip": "The results found, the first result to return. Must be a non-negative integer.",
+                    "description": "The results found, the first result to return. Must be a non-negative integer."
+                },
+                {
+                    "title": "Size",
+                    "type": "integer",
+                    "name": "size",
+                    "required": false,
+                    "visible": true,
+                    "editable": true,
+                    "value": "10",
+                    "tooltip": "Number of results to return. Must be a positive integer between 1-100.",
+                    "description": "Number of results to return. Must be a positive integer between 1-100."
+                },
+                {
+                    "title": "Insight Types",
+                    "type": "text",
+                    "name": "insightTypes",
+                    "required": false,
+                    "visible": true,
+                    "editable": true,
+                    "value": "PUBLIC_CI,LOGCEPTION",
+                    "tooltip": "Filters results by Insight type. LOGCEPTION filters for application insights. PUBLIC_CI filters for Cognitive Insights.",
+                    "description":"Filters results by Insight type. LOGCEPTION filters for application insights. PUBLIC_CI filters for Cognitive Insights."
+                },
+                {
+                    "title": "Tag Names",
+                    "type": "text",
+                    "name": "tagNames",
+                    "required": false,
+                    "visible": true,
+                    "editable": true,
+                    "value": "",
+                    "tooltip": "Filters results by the tag values used to categorize Insights.",
+                    "description": "Filters results by the tag values used to categorize Insights."
+                },
+                {
+                    "title": "Log Types",
+                    "type": "multiselect",
+                    "name": "logTypes",
+                    "required": false,
+                    "visible": true,
+                    "editable": true,
+                    "value": null,
+                    "tooltip": "Filters results by log type.",
+                    "description": "Filters results by log type.",
+                    "options": [
+                        "log-engine",
+                        "spark"
+                    ]
+                },
+                {
+                    "title": "Only New",
+                    "type": "checkbox",
+                    "name": "onlyNew",
+                    "required": false,
+                    "visible": true,
+                    "editable": true,
+                    "description": "Filters for Insights that first occurred in the selected time frame. In other words, excludes Insights that were first identified before or after the selected time range.",
+                    "tooltip": "Filters for Insights that first occurred in the selected time frame. In other words, excludes Insights that were first identified before or after the selected time range."
+                },
+                {
+                    "title": "Sort By",
+                    "type": "select",
+                    "name": "sortBy",
+                    "required": false,
+                    "visible": true,
+                    "editable": true,
+                    "value": "COUNT",
+                    "description":"Sorts Insights by the selected parameters.",
+                    "tooltip": "Sorts Insights by the selected parameters.",
+                    "options": [
+                        "FIRST_OCCURRENCE",
+                        "LAST_OCCURRENCE",
+                        "COUNT"
+                    ]
+                },
+                {
+                    "title": "asc",
+                    "type": "checkbox",
+                    "name": "asc",
+                    "required": false,
+                    "visible": true,
+                    "editable": true,
+                    "tooltip": "If false, sorts Insights in descending order. The order depends on the selected sortBy parameter.",
+                    "description": "If false, sorts Insights in descending order. The order depends on the selected sortBy parameter."
+                },
+                {
+                    "title": "Search",
+                    "type": "text",
+                    "name": "search",
+                    "required": false,
+                    "visible": true,
+                    "editable": true,
+                    "value": "Exception",
+                    "tooltip": "Searches for an Insight by its title.",
+                    "description": "Searches for an Insight by its title."
+                }
+            ],
+            "open": false
+        },
+        {
+            "title": "Fetch Security Events",
+            "operation": "fetch_security_events",
+            "description": "Runs a search query in your Logz.io Cloud SIEM account to fetch the security events that match the query parameters.",
+            "annotation": "fetch_security_events",
+            "category": "investigation",
+            "output_schema": [],
+            "parameters": [
+                {
+                    "title": "Search Term",
+                    "type": "text",
+                    "description": "Filter for a matching string in the security rule name.",
+                    "name": "searchTerm",
+                    "required": false,
+                    "visible": true,
+                    "editable": true,
+                    "value": "",
+                    "placeholder": "Falco",
+                    "tooltip": "Filter for a matching string in the security rule name."
+                },
+                {
+                    "title": "Severities",
+                    "type": "select",
+                    "description": "Filter by the severities of the security rules.",
+                    "name": "severities",
+                    "required": false,
+                    "visible": true,
+                    "editable": true,
+                    "value": "LOW",
+                    "options": [
+                        "INFO",
+                        "LOW",
+                        "MEDIUM",
+                        "HIGH",
+                        "SEVERE"
+                    ],
+                    "tooltip": "Filter by the severities of the security rules."
+                },
+                {
+                    "title": "From Date",
+                    "type": "integer",
+                    "description": "Absolute UNIX timestamp in seconds (not milliseconds). Your security account's retention policy determines the earliest events you'll be able to retrieve.",
+                    "tooltip": "Absolute UNIX timestamp in seconds (not milliseconds).",
+                    "name": "fromDate",
+                    "placeholder": "1587134550",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "value": ""
+                },
+                {
+                    "title": "To Date",
+                    "type": "integer",
+                    "description": "Absolute UNIX timestamp in seconds (not milliseconds).",
+                    "tooltip": "Absolute UNIX timestamp in seconds (not milliseconds).",
+                    "name": "toDate",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "placeholder": "1587134557",
+                    "value": ""
+                },
+                {
+                    "title": "includeMutedEvents",
+                    "type": "checkbox",
+                    "description": "Defines if muted events need to be passed. The endpoint will return both non-muted and muted events if this is set to true.",
+                    "name": "_source",
+                    "required": false,
+                    "visible": true,
+                    "editable": true,
+                    "value": "",
+                    "tooltip": "Defines if muted events need to be passed. The endpoint will return both non-muted and muted events if this is set to true."
+                },
+                {
+                    "title": "Field",
+                    "type": "select",
+                    "description": "Sort by date and/or severity. Order determines secondary sorting.",
+                    "name": "field",
+                    "options": [
+                        "DATE",
+                        "SEVERITY"
+                    ],
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "value": "SEVERITY"
+                },
+                {
+                    "title": "Descending",
+                    "type": "checkbox",
+                    "description": "If left blank, descending sorting will result. If false results in ascending sorting.",
+                    "name": "descending",
+                    "required": false,
+                    "visible": true,
+                    "editable": true,
+                    "value": true,
+                    "tooltip": "If left blank, descending sorting will result. If false results in ascending sorting."
+                },
+                {
+                    "title": "Page Number",
+                    "type": "integer",
+                    "description": "If you overshoot the page number, it will return empty with no results, but it won't fail the request.",
+                    "name": "pageNumber",
+                    "required": false,
+                    "visible": true,
+                    "editable": true,
+                    "value": "1",
+                    "tooltip": "If you overshoot the page number, it will return empty with no results, but it won't fail the request."
+                },
+                {
+                    "title": "Page Size",
+                    "type": "integer",
+                    "description": "Controls the number of results per page. Valid inputs are 1 to 1000.",
+                    "name": "pageSize",
+                    "required": false,
+                    "visible": true,
+                    "editable": true,
+                    "value": "25",
+                    "tooltip": "Controls the number of results per page. Valid inputs are 1 to 1000."
+                }
+            ]
+        },
+        {
+            "title": "Delete Alert",
+            "operation": "delete_an_alert",
+            "description": "Returns the complete list of all alerts configured for the account.",
+            "annotation": "delete_an_alert",
+            "category": "investigation",
+            "parameters": [
+                {
+                    "title": "Alert ID",
+                    "type": "integer",
+                    "description": "Unique identifier of the alert in Logz.io.",
+                    "name": "alert_id",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "value": "",
+                    "placeholder": "e.g.: 563412",
+                    "tooltip": "Unique identifier of the alert in Logz.io."
+                }
+            ],
+            "open": false
+        }
+    ]
+}
