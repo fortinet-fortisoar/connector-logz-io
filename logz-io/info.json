@@ -5,6 +5,8 @@
     "description": "Logz.io delivers unified, full stack observability and security as a fully-managed SaaS based on best-of-breed open source. The Open 360 platform brings together logs, metrics, traces, and security data, applying powerful AI/ML features to improve troubleshooting, reduce response times, and help manage costs.",
     "publisher": "Fortinet",
     "contributor": "SpryIQ.co",
+    "cs_approved": false,
+    "cs_compatible": true,
     "icon_small_name": "small.png",
     "icon_large_name": "large.png",
     "help_online": "https://github.com/fortinet-fortisoar/connector-logz-io/blob/release/1.0.0/docs/LogzIoConnectorDoc.md",
@@ -32,6 +34,17 @@
                 "value": "",
                 "tooltip": "Specify the API key to access the endpoint to which you will connect and perform the automated operations.",
                 "description": "Specify the API key to access the endpoint to which you will connect and perform the automated operations."
+            },
+            {
+                "title": "Verify SSL",
+                "name": "verify_ssl",
+                "description": "Specifies whether the SSL certificate for the server is to be verified. By default, this option is selected, i.e., set to True.",
+                "tooltip": "Specifies whether the SSL certificate for the server is to be verified.",
+                "type": "checkbox",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "value": true
             }
         ]
     },

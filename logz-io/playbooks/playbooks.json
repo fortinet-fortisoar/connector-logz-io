@@ -2,65 +2,35 @@
   "type": "workflow_collections",
   "data": [
     {
-      "uuid": "a3754e56-28f5-4dd2-9e7c-0b0509a0406b",
+      "uuid": "6b90dd2b-5d5b-4ad4-9188-bc2590263ec1",
       "@type": "WorkflowCollection",
-      "name": "Sample - Logz.io - 1.0.0",
-      "description": "Logz.io delivers unified, full stack observability and security as a fully-managed SaaS based on best-of-breed open source. The Open 360 platform brings together logs, metrics, traces, and security data, applying powerful AI/ML features to improve troubleshooting, reduce response times, and help manage costs.",
-      "visible": true,
-      "image": null,
-      "recordTags": [
-        "Logz",
-        "logz-io"
-      ],
       "workflows": [
         {
           "@type": "Workflow",
-          "uuid": "826ae78c-7ba5-43eb-b7d3-5bb5eb4d4c5b",
-          "collection": "/api/3/workflow_collections/a3754e56-28f5-4dd2-9e7c-0b0509a0406b",
-          "triggerLimit": null,
-          "description": "Returns the complete list of all alerts configured for the account.",
-          "name": "Retrieve All Alerts",
-          "tag": "#Logz.io",
-          "recordTags": [
-            "Logz"
-          ],
-          "isActive": false,
-          "debug": false,
-          "singleRecordExecution": false,
-          "parameters": [],
-          "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/a38e2de3-9106-4778-b602-ad932cb34b62",
+          "uuid": "fa37bf18-7f5b-4afb-b98e-2ed58594cd3f",
+          "collection": "/api/3/workflow_collections/6b90dd2b-5d5b-4ad4-9188-bc2590263ec1",
           "steps": [
             {
-              "uuid": "a38e2de3-9106-4778-b602-ad932cb34b62",
+              "uuid": "bd2d633f-65d4-4be5-9ff8-670c6dd6a8ae",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "7864cfeb-85e9-4ffc-881b-a654b0225f2d",
-                "title": "Logz.io: Retrieve All Alerts",
-                "resources": [
-                  "alerts"
-                ],
-                "inputVariables": [],
                 "step_variables": {
                   "input": {
-                    "records": "{{vars.input.records[0]}}"
+                    "params": []
                   }
-                },
-                "singleRecordExecution": false,
-                "noRecordExecution": true,
-                "executeButtonText": "Execute"
+                }
               },
               "left": "20",
               "top": "20",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
             },
             {
-              "uuid": "40fa135d-8c36-4130-ba19-6b7034a0fce6",
+              "uuid": "fadd43c8-9c9e-44ee-a594-2239d25ae121",
               "@type": "WorkflowStep",
-              "name": "Retrieve All Alerts",
+              "name": "Get Alerts List",
               "description": null,
               "status": null,
               "arguments": {
@@ -70,76 +40,65 @@
                 "version": "1.0.0",
                 "connector": "logz-io",
                 "operation": "retrieve_all_alerts",
-                "operationTitle": "Retrieve All Alerts",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
+                "operationTitle": "Get Alerts List"
               },
               "left": "188",
               "top": "120",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
             }
           ],
-          "routes": [
-            {
-              "@type": "WorkflowRoute",
-              "uuid": "7e78dfa3-0b13-47af-83cd-565bffde173d",
-              "label": null,
-              "isExecuted": false,
-              "name": "Start-> Retrieve All Alerts",
-              "sourceStep": "/api/3/workflow_steps/a38e2de3-9106-4778-b602-ad932cb34b62",
-              "targetStep": "/api/3/workflow_steps/40fa135d-8c36-4130-ba19-6b7034a0fce6"
-            }
-          ]
-        },
-        {
-          "@type": "Workflow",
-          "uuid": "570e5706-b2ca-4370-a0e9-c1e5fb5d654b",
-          "collection": "/api/3/workflow_collections/a3754e56-28f5-4dd2-9e7c-0b0509a0406b",
           "triggerLimit": null,
-          "description": "Returns alert details by alert ID.",
-          "name": "Retrieve Alert By ID",
+          "description": "Returns the complete list of all alerts configured for the account.",
+          "name": "Get Alerts List",
           "tag": "#Logz.io",
           "recordTags": [
-            "Logz"
+            "Logz",
+            "logz-io"
           ],
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/b9f87058-aaeb-451e-97b1-5fc17b1a088d",
+          "triggerStep": "/api/3/workflow_steps/bd2d633f-65d4-4be5-9ff8-670c6dd6a8ae",
+          "routes": [
+            {
+              "uuid": "a644044f-3162-4e91-a51d-b7c564ec3969",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Alerts List",
+              "sourceStep": "/api/3/workflow_steps/bd2d633f-65d4-4be5-9ff8-670c6dd6a8ae",
+              "targetStep": "/api/3/workflow_steps/fadd43c8-9c9e-44ee-a594-2239d25ae121"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "592b0740-3208-43a5-b292-e91c0ed3a438",
+          "collection": "/api/3/workflow_collections/6b90dd2b-5d5b-4ad4-9188-bc2590263ec1",
           "steps": [
             {
-              "uuid": "b9f87058-aaeb-451e-97b1-5fc17b1a088d",
+              "uuid": "5833b1b1-66c8-4407-83ae-d65de6a8303e",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "f8b2ab16-4f02-4920-935b-cfc491012c62",
-                "title": "Logz.io: Retrieve Alert By ID",
-                "resources": [
-                  "alerts"
-                ],
-                "inputVariables": [],
                 "step_variables": {
                   "input": {
-                    "records": "{{vars.input.records[0]}}"
+                    "params": []
                   }
-                },
-                "singleRecordExecution": false,
-                "noRecordExecution": true,
-                "executeButtonText": "Execute"
+                }
               },
               "left": "20",
               "top": "20",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
             },
             {
-              "uuid": "15c02adc-f2c0-4031-a27c-a8106f96bb8b",
+              "uuid": "34d18bb7-773d-466c-b46d-c1b180034e47",
               "@type": "WorkflowStep",
-              "name": "Retrieve Alert By ID",
+              "name": "Get Alert By ID",
               "description": null,
               "status": null,
               "arguments": {
@@ -151,74 +110,63 @@
                 "version": "1.0.0",
                 "connector": "logz-io",
                 "operation": "retrieve_alert_by_id",
-                "operationTitle": "Retrieve Alert By ID",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
+                "operationTitle": "Get Alert By ID"
               },
               "left": "188",
               "top": "120",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
             }
           ],
-          "routes": [
-            {
-              "@type": "WorkflowRoute",
-              "uuid": "354ceadc-7fd5-4ae1-8ae8-e0f000d454b6",
-              "label": null,
-              "isExecuted": false,
-              "name": "Start-> Retrieve Alert By ID",
-              "sourceStep": "/api/3/workflow_steps/b9f87058-aaeb-451e-97b1-5fc17b1a088d",
-              "targetStep": "/api/3/workflow_steps/15c02adc-f2c0-4031-a27c-a8106f96bb8b"
-            }
-          ]
-        },
-        {
-          "@type": "Workflow",
-          "uuid": "6e840bdd-7bb7-49dd-a712-4bb60795b339",
-          "collection": "/api/3/workflow_collections/a3754e56-28f5-4dd2-9e7c-0b0509a0406b",
           "triggerLimit": null,
-          "description": "Enables an alert by its alert ID. This is reversible. The alert can be disabled again at any time.",
-          "name": "Enable Alert By ID",
+          "description": "Retrieves the alert details based on the alert ID that you have specified.",
+          "name": "Get Alert By ID",
           "tag": "#Logz.io",
           "recordTags": [
-            "Logz"
+            "Logz",
+            "logz-io"
           ],
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/d19dd02e-62e8-4f23-8d8a-dce51bb29f86",
+          "triggerStep": "/api/3/workflow_steps/5833b1b1-66c8-4407-83ae-d65de6a8303e",
+          "routes": [
+            {
+              "uuid": "eda4b1dd-8369-4ca4-8b0d-b92ee05e5347",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Alert By ID",
+              "sourceStep": "/api/3/workflow_steps/5833b1b1-66c8-4407-83ae-d65de6a8303e",
+              "targetStep": "/api/3/workflow_steps/34d18bb7-773d-466c-b46d-c1b180034e47"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "46c6727a-319d-4320-825f-b1cfe0b716b1",
+          "collection": "/api/3/workflow_collections/6b90dd2b-5d5b-4ad4-9188-bc2590263ec1",
           "steps": [
             {
-              "uuid": "d19dd02e-62e8-4f23-8d8a-dce51bb29f86",
+              "uuid": "0205a55a-b6de-46b9-81bc-2c0538b93103",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "d450785b-1ee5-4eb4-b99c-18292a2894eb",
-                "title": "Logz.io: Enable Alert By ID",
-                "resources": [
-                  "alerts"
-                ],
-                "inputVariables": [],
                 "step_variables": {
                   "input": {
-                    "records": "{{vars.input.records[0]}}"
+                    "params": []
                   }
-                },
-                "singleRecordExecution": false,
-                "noRecordExecution": true,
-                "executeButtonText": "Execute"
+                }
               },
               "left": "20",
               "top": "20",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
             },
             {
-              "uuid": "40a5e0a8-b94b-4f09-a3a2-70c6957d524c",
+              "uuid": "8bb5e161-d3cd-45b5-9919-5491e9a7e421",
               "@type": "WorkflowStep",
               "name": "Enable Alert By ID",
               "description": null,
@@ -232,74 +180,63 @@
                 "version": "1.0.0",
                 "connector": "logz-io",
                 "operation": "enable_alert_by_id",
-                "operationTitle": "Enable Alert By ID",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
+                "operationTitle": "Enable Alert By ID"
               },
               "left": "188",
               "top": "120",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
             }
           ],
-          "routes": [
-            {
-              "@type": "WorkflowRoute",
-              "uuid": "f8dd9629-b25f-4f09-92d8-814aecb20c28",
-              "label": null,
-              "isExecuted": false,
-              "name": "Start-> Enable Alert By ID",
-              "sourceStep": "/api/3/workflow_steps/d19dd02e-62e8-4f23-8d8a-dce51bb29f86",
-              "targetStep": "/api/3/workflow_steps/40a5e0a8-b94b-4f09-a3a2-70c6957d524c"
-            }
-          ]
-        },
-        {
-          "@type": "Workflow",
-          "uuid": "0a3ba3cf-4ff2-484e-8000-7f84c2341776",
-          "collection": "/api/3/workflow_collections/a3754e56-28f5-4dd2-9e7c-0b0509a0406b",
           "triggerLimit": null,
-          "description": "Disables an alert by its alert ID. This is reversible. The alert can be enabled again at any time.",
-          "name": "Disable Alert By ID",
+          "description": "Enables an alert by its alert ID. This is reversible. The alert can be disabled again at any time.",
+          "name": "Enable Alert By ID",
           "tag": "#Logz.io",
           "recordTags": [
-            "Logz"
+            "Logz",
+            "logz-io"
           ],
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/b30ea8e9-efbb-46b8-a154-1925b23c5c74",
+          "triggerStep": "/api/3/workflow_steps/0205a55a-b6de-46b9-81bc-2c0538b93103",
+          "routes": [
+            {
+              "uuid": "73493129-c7e2-4519-8171-182088b43ecb",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Enable Alert By ID",
+              "sourceStep": "/api/3/workflow_steps/0205a55a-b6de-46b9-81bc-2c0538b93103",
+              "targetStep": "/api/3/workflow_steps/8bb5e161-d3cd-45b5-9919-5491e9a7e421"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "3a0bdde5-b225-4d42-987c-b4cb7f4419cd",
+          "collection": "/api/3/workflow_collections/6b90dd2b-5d5b-4ad4-9188-bc2590263ec1",
           "steps": [
             {
-              "uuid": "b30ea8e9-efbb-46b8-a154-1925b23c5c74",
+              "uuid": "440fce75-951e-423f-8347-5a1562432279",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "49a61ebf-858d-483c-a49c-32213a073dcc",
-                "title": "Logz.io: Disable Alert By ID",
-                "resources": [
-                  "alerts"
-                ],
-                "inputVariables": [],
                 "step_variables": {
                   "input": {
-                    "records": "{{vars.input.records[0]}}"
+                    "params": []
                   }
-                },
-                "singleRecordExecution": false,
-                "noRecordExecution": true,
-                "executeButtonText": "Execute"
+                }
               },
               "left": "20",
               "top": "20",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
             },
             {
-              "uuid": "c3901956-c56f-4161-80ba-86458db0ba52",
+              "uuid": "e04741e6-237a-494b-9970-de941613b319",
               "@type": "WorkflowStep",
               "name": "Disable Alert By ID",
               "description": null,
@@ -313,74 +250,63 @@
                 "version": "1.0.0",
                 "connector": "logz-io",
                 "operation": "disable_alert_by_id",
-                "operationTitle": "Disable Alert By ID",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
+                "operationTitle": "Disable Alert By ID"
               },
               "left": "188",
               "top": "120",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
             }
           ],
-          "routes": [
-            {
-              "@type": "WorkflowRoute",
-              "uuid": "8c4de6a6-2390-49b0-ab7e-e1a3ecf6246a",
-              "label": null,
-              "isExecuted": false,
-              "name": "Start-> Disable Alert By ID",
-              "sourceStep": "/api/3/workflow_steps/b30ea8e9-efbb-46b8-a154-1925b23c5c74",
-              "targetStep": "/api/3/workflow_steps/c3901956-c56f-4161-80ba-86458db0ba52"
-            }
-          ]
-        },
-        {
-          "@type": "Workflow",
-          "uuid": "95ce2777-8fb5-4add-bd34-96fc9e9a29ce",
-          "collection": "/api/3/workflow_collections/a3754e56-28f5-4dd2-9e7c-0b0509a0406b",
           "triggerLimit": null,
-          "description": "Searches your account data using the Elasticsearch Search API DSL query language. total: This call returns up to 1,000 results per query for aggregated results, or 10,000 results for non-aggregated results.",
-          "name": "Search Logs",
+          "description": "Disables an alert by its alert ID. This is reversible. The alert can be enabled again at any time.",
+          "name": "Disable Alert By ID",
           "tag": "#Logz.io",
           "recordTags": [
-            "Logz"
+            "Logz",
+            "logz-io"
           ],
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/b68cadef-20aa-46c8-b3bc-476ff5c8b603",
+          "triggerStep": "/api/3/workflow_steps/440fce75-951e-423f-8347-5a1562432279",
+          "routes": [
+            {
+              "uuid": "197c26ed-27c0-4b07-8a3c-6789617dbadd",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Disable Alert By ID",
+              "sourceStep": "/api/3/workflow_steps/440fce75-951e-423f-8347-5a1562432279",
+              "targetStep": "/api/3/workflow_steps/e04741e6-237a-494b-9970-de941613b319"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "95d1621a-fe35-4674-8cee-6b66d71251e4",
+          "collection": "/api/3/workflow_collections/6b90dd2b-5d5b-4ad4-9188-bc2590263ec1",
           "steps": [
             {
-              "uuid": "b68cadef-20aa-46c8-b3bc-476ff5c8b603",
+              "uuid": "83957187-c64d-41f4-a961-e0c9a1cc3c6f",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "ae711fbd-d55b-4820-8246-2579fa12b811",
-                "title": "Logz.io: Search Logs",
-                "resources": [
-                  "alerts"
-                ],
-                "inputVariables": [],
                 "step_variables": {
                   "input": {
-                    "records": "{{vars.input.records[0]}}"
+                    "params": []
                   }
-                },
-                "singleRecordExecution": false,
-                "noRecordExecution": true,
-                "executeButtonText": "Execute"
+                }
               },
               "left": "20",
               "top": "20",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
             },
             {
-              "uuid": "2c96de8c-f644-4196-a236-86242c4322d6",
+              "uuid": "c537e8d6-a743-4168-a58b-828db1f7be2a",
               "@type": "WorkflowStep",
               "name": "Search Logs",
               "description": null,
@@ -394,76 +320,65 @@
                 "version": "1.0.0",
                 "connector": "logz-io",
                 "operation": "search_logs",
-                "operationTitle": "Search Logs",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
+                "operationTitle": "Search Logs"
               },
               "left": "188",
               "top": "120",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
             }
           ],
-          "routes": [
-            {
-              "@type": "WorkflowRoute",
-              "uuid": "a3af6715-b001-4e51-92ca-4dc6b271ae0e",
-              "label": null,
-              "isExecuted": false,
-              "name": "Start-> Search Logs",
-              "sourceStep": "/api/3/workflow_steps/b68cadef-20aa-46c8-b3bc-476ff5c8b603",
-              "targetStep": "/api/3/workflow_steps/2c96de8c-f644-4196-a236-86242c4322d6"
-            }
-          ]
-        },
-        {
-          "@type": "Workflow",
-          "uuid": "c1dc2d7f-46b1-4cbc-8d75-8a0cb50d88a8",
-          "collection": "/api/3/workflow_collections/a3754e56-28f5-4dd2-9e7c-0b0509a0406b",
           "triggerLimit": null,
-          "description": "Get the list of Insights that match your search criteria.",
-          "name": "Get List Of Insights",
+          "description": "Searches your account data using the Elasticsearch Search API DSL query language. total: This call returns up to 1,000 results per query for aggregated results, or 10,000 results for non-aggregated results.",
+          "name": "Search Logs",
           "tag": "#Logz.io",
           "recordTags": [
-            "Logz"
+            "Logz",
+            "logz-io"
           ],
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/8e74634a-14a4-48f0-9479-0ce3bbe737da",
+          "triggerStep": "/api/3/workflow_steps/83957187-c64d-41f4-a961-e0c9a1cc3c6f",
+          "routes": [
+            {
+              "uuid": "f82398d0-9d46-4c3e-b453-d33198ced3a6",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Search Logs",
+              "sourceStep": "/api/3/workflow_steps/83957187-c64d-41f4-a961-e0c9a1cc3c6f",
+              "targetStep": "/api/3/workflow_steps/c537e8d6-a743-4168-a58b-828db1f7be2a"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "7df34a36-09b4-4d1e-9610-b9ffff382136",
+          "collection": "/api/3/workflow_collections/6b90dd2b-5d5b-4ad4-9188-bc2590263ec1",
           "steps": [
             {
-              "uuid": "8e74634a-14a4-48f0-9479-0ce3bbe737da",
+              "uuid": "d3fe7127-eccb-467d-a3a9-c11fd955e3fd",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "67ff256c-e103-4641-8fef-d6bed1974d5a",
-                "title": "Logz.io: Get List Of Insights",
-                "resources": [
-                  "alerts"
-                ],
-                "inputVariables": [],
                 "step_variables": {
                   "input": {
-                    "records": "{{vars.input.records[0]}}"
+                    "params": []
                   }
-                },
-                "singleRecordExecution": false,
-                "noRecordExecution": true,
-                "executeButtonText": "Execute"
+                }
               },
               "left": "20",
               "top": "20",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
             },
             {
-              "uuid": "8fbce0d5-f288-4027-8dee-f04426230a7f",
+              "uuid": "34b5b0fe-d96f-4a96-aee2-12ece72370f7",
               "@type": "WorkflowStep",
-              "name": "Get List Of Insights",
+              "name": "Get Insights List",
               "description": null,
               "status": null,
               "arguments": {
@@ -476,83 +391,74 @@
                   "size": "10",
                   "insightTypes": "PUBLIC_CI,LOGCEPTION",
                   "tagNames": "",
-                  "logTypes": null,
+                  "logTypes": "",
+                  "onlyNew": "",
                   "sortBy": "COUNT",
+                  "asc": "",
                   "search": "Exception"
                 },
                 "version": "1.0.0",
                 "connector": "logz-io",
                 "operation": "get_list_of_insights",
-                "operationTitle": "Get List Of Insights",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
+                "operationTitle": "Get Insights List"
               },
               "left": "188",
               "top": "120",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
             }
           ],
-          "routes": [
-            {
-              "@type": "WorkflowRoute",
-              "uuid": "9f963a98-54de-4726-955b-41d4827cdff3",
-              "label": null,
-              "isExecuted": false,
-              "name": "Start-> Get List Of Insights",
-              "sourceStep": "/api/3/workflow_steps/8e74634a-14a4-48f0-9479-0ce3bbe737da",
-              "targetStep": "/api/3/workflow_steps/8fbce0d5-f288-4027-8dee-f04426230a7f"
-            }
-          ]
-        },
-        {
-          "@type": "Workflow",
-          "uuid": "598c22b6-6056-4de8-b54f-814cb601809c",
-          "collection": "/api/3/workflow_collections/a3754e56-28f5-4dd2-9e7c-0b0509a0406b",
           "triggerLimit": null,
-          "description": "Runs a search query in your Logz.io Cloud SIEM account to fetch the security events that match the query parameters.",
-          "name": "Fetch Security Events",
+          "description": "Retrieves the detailed list of insights based on the parameters that you have specified.",
+          "name": "Get Insights List",
           "tag": "#Logz.io",
           "recordTags": [
-            "Logz"
+            "Logz",
+            "logz-io"
           ],
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/0f3f8fef-b161-41fa-b8e9-cef5c34eed91",
+          "triggerStep": "/api/3/workflow_steps/d3fe7127-eccb-467d-a3a9-c11fd955e3fd",
+          "routes": [
+            {
+              "uuid": "c10db186-4aa0-4f81-b9d7-445b6dcd8794",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Insights List",
+              "sourceStep": "/api/3/workflow_steps/d3fe7127-eccb-467d-a3a9-c11fd955e3fd",
+              "targetStep": "/api/3/workflow_steps/34b5b0fe-d96f-4a96-aee2-12ece72370f7"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "1ada2af6-5f35-490c-b6be-b520d25dbdca",
+          "collection": "/api/3/workflow_collections/6b90dd2b-5d5b-4ad4-9188-bc2590263ec1",
           "steps": [
             {
-              "uuid": "0f3f8fef-b161-41fa-b8e9-cef5c34eed91",
+              "uuid": "85bd491a-943d-4e93-9e3c-d09348fc87e8",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "5dbb19c8-608e-4cb5-a512-6a6018b1da34",
-                "title": "Logz.io: Fetch Security Events",
-                "resources": [
-                  "alerts"
-                ],
-                "inputVariables": [],
                 "step_variables": {
                   "input": {
-                    "records": "{{vars.input.records[0]}}"
+                    "params": []
                   }
-                },
-                "singleRecordExecution": false,
-                "noRecordExecution": true,
-                "executeButtonText": "Execute"
+                }
               },
               "left": "20",
               "top": "20",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
             },
             {
-              "uuid": "953ebcc3-ddcb-48d5-b1e4-5a5e17d40e51",
+              "uuid": "342db551-063d-4783-959f-41dad13104f9",
               "@type": "WorkflowStep",
-              "name": "Fetch Security Events",
+              "name": "Get Security Events List",
               "description": null,
               "status": null,
               "arguments": {
@@ -572,76 +478,65 @@
                 "version": "1.0.0",
                 "connector": "logz-io",
                 "operation": "fetch_security_events",
-                "operationTitle": "Fetch Security Events",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
+                "operationTitle": "Get Security Events List"
               },
               "left": "188",
               "top": "120",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
             }
           ],
-          "routes": [
-            {
-              "@type": "WorkflowRoute",
-              "uuid": "835aecd5-f846-4314-9a2f-27929d5f7e08",
-              "label": null,
-              "isExecuted": false,
-              "name": "Start-> Fetch Security Events",
-              "sourceStep": "/api/3/workflow_steps/0f3f8fef-b161-41fa-b8e9-cef5c34eed91",
-              "targetStep": "/api/3/workflow_steps/953ebcc3-ddcb-48d5-b1e4-5a5e17d40e51"
-            }
-          ]
-        },
-        {
-          "@type": "Workflow",
-          "uuid": "3d235dde-bddb-4bc7-b5bc-c18f54aa4cad",
-          "collection": "/api/3/workflow_collections/a3754e56-28f5-4dd2-9e7c-0b0509a0406b",
           "triggerLimit": null,
-          "description": "Returns the complete list of all alerts configured for the account.",
-          "name": "Delete Alert",
+          "description": "Runs a search query in your Logz.io Cloud SIEM account to fetch the security events that match the query parameters.",
+          "name": "Get Security Events List",
           "tag": "#Logz.io",
           "recordTags": [
-            "Logz"
+            "Logz",
+            "logz-io"
           ],
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/3e3458a6-45ec-4407-9774-3b568fb27e4c",
+          "triggerStep": "/api/3/workflow_steps/85bd491a-943d-4e93-9e3c-d09348fc87e8",
+          "routes": [
+            {
+              "uuid": "164d7567-01ed-4423-bc2d-97e546023898",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Security Events List",
+              "sourceStep": "/api/3/workflow_steps/85bd491a-943d-4e93-9e3c-d09348fc87e8",
+              "targetStep": "/api/3/workflow_steps/342db551-063d-4783-959f-41dad13104f9"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "02c09840-4b23-4d7a-b942-9633ef1f280b",
+          "collection": "/api/3/workflow_collections/6b90dd2b-5d5b-4ad4-9188-bc2590263ec1",
           "steps": [
             {
-              "uuid": "3e3458a6-45ec-4407-9774-3b568fb27e4c",
+              "uuid": "bb8e0421-7067-4f69-95d4-97c79a643bdc",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "8ef70597-c23f-4d4f-9802-632b33daeace",
-                "title": "Logz.io: Delete Alert",
-                "resources": [
-                  "alerts"
-                ],
-                "inputVariables": [],
                 "step_variables": {
                   "input": {
-                    "records": "{{vars.input.records[0]}}"
+                    "params": []
                   }
-                },
-                "singleRecordExecution": false,
-                "noRecordExecution": true,
-                "executeButtonText": "Execute"
+                }
               },
               "left": "20",
               "top": "20",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
             },
             {
-              "uuid": "a2151523-c8ec-454c-a407-58d25d0d8d13",
+              "uuid": "0e1b1190-0ee1-4ed0-ac3a-c7af889cc8fe",
               "@type": "WorkflowStep",
-              "name": "Delete Alert",
+              "name": "Delete Alert By ID",
               "description": null,
               "status": null,
               "arguments": {
@@ -653,28 +548,46 @@
                 "version": "1.0.0",
                 "connector": "logz-io",
                 "operation": "delete_an_alert",
-                "operationTitle": "Delete Alert",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
+                "operationTitle": "Delete Alert By ID"
               },
               "left": "188",
               "top": "120",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
             }
           ],
+          "triggerLimit": null,
+          "description": "Delete alert based on the alert ID that you have specified.",
+          "name": "Delete Alert By ID",
+          "tag": "#Logz.io",
+          "recordTags": [
+            "Logz",
+            "logz-io"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/bb8e0421-7067-4f69-95d4-97c79a643bdc",
           "routes": [
             {
+              "uuid": "694e4adb-863b-446e-886e-eb6aafe9eefd",
               "@type": "WorkflowRoute",
-              "uuid": "526b383a-9e47-47a7-a8ed-f14eb574ad28",
               "label": null,
               "isExecuted": false,
-              "name": "Start-> Delete Alert",
-              "sourceStep": "/api/3/workflow_steps/3e3458a6-45ec-4407-9774-3b568fb27e4c",
-              "targetStep": "/api/3/workflow_steps/a2151523-c8ec-454c-a407-58d25d0d8d13"
+              "name": "Start-> Delete Alert By ID",
+              "sourceStep": "/api/3/workflow_steps/bb8e0421-7067-4f69-95d4-97c79a643bdc",
+              "targetStep": "/api/3/workflow_steps/0e1b1190-0ee1-4ed0-ac3a-c7af889cc8fe"
             }
           ]
         }
+      ],
+      "name": "Sample - Logz.io - 1.0.0",
+      "description": "Logz.io delivers unified, full stack observability and security as a fully-managed SaaS based on best-of-breed open source. The Open 360 platform brings together logs, metrics, traces, and security data, applying powerful AI/ML features to improve troubleshooting, reduce response times, and help manage costs.",
+      "visible": true,
+      "recordTags": [
+        "Logz",
+        "logz-io"
       ]
     }
   ]

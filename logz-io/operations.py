@@ -20,6 +20,7 @@ class LogzIO(object):
             'Accept': 'application/json',
             'X-API-TOKEN': self.api_key
         }
+        self.verify_ssl = config.get("verify_ssl")
         if self.server_url.startswith("http://"):
             self.server_url = self.server_url.replace("http://", "https://", 1)
         elif not self.server_url.startswith("https://"):
@@ -31,7 +32,7 @@ class LogzIO(object):
         if headers:
             self.headers.update(headers)
         try:
-            response = request(method, url, headers=self.headers, data=json.dumps(data), timeout=10)
+            response = request(method, url, headers=self.headers, data=json.dumps(data), verify=self.verify_ssl)
             if response.status_code in [200]:  # Successful responses
                 if health_check:
                     return response
