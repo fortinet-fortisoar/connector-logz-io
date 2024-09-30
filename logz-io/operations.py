@@ -5,8 +5,8 @@ Copyright (c) 2024 Fortinet Inc
 Copyright end
 """
 import json
-import requests
 from connectors.core.connector import get_logger, ConnectorError
+from requests import request, exceptions as req_exceptions
 
 logger = get_logger('logz-io')
 
@@ -20,6 +20,7 @@ class LogzIO(object):
             'Accept': 'application/json',
             'X-API-TOKEN': self.api_key
         }
+        self.verify_ssl = config.get("verify_ssl")
         if self.server_url.startswith("http://"):
             self.server_url = self.server_url.replace("http://", "https://", 1)
         elif not self.server_url.startswith("https://"):
@@ -27,12 +28,11 @@ class LogzIO(object):
 
     def make_api_call(self, endpoint=None, method='GET', headers=None, health_check=False, data=None):
         url = self.server_url + endpoint
-        logger.debug(f'Final URL to make REST call is: {url}')
+        logger.debug(f'Final URL to make REST call is: {url}\ndata: {data}')
         if headers:
             self.headers.update(headers)
         try:
-            logger.debug(f'Making request with {method} and headers {self.headers}.')
-            response = requests.request(method, url, headers=self.headers, data=json.dumps(data), timeout=10)
+            response = request(method, url, headers=self.headers, data=json.dumps(data), verify=self.verify_ssl)
             if response.status_code in [200]:  # Successful responses
                 if health_check:
                     return response
@@ -48,9 +48,20 @@ class LogzIO(object):
                 logger.error(f'Failed with response: {response.content}')
                 raise ConnectorError(
                     {'status': 'Failure', 'status_code': response.status_code, 'response': response.content})
-        except requests.exceptions.RequestException as e:
-            logger.error(f'Request failed: {e}')
-            raise ConnectorError(str(e))
+        except req_exceptions.SSLError:
+            logger.error('An SSL error occurred')
+            raise ConnectorError('An SSL error occurred')
+        except req_exceptions.ConnectionError:
+            logger.error('A connection error occurred')
+            raise ConnectorError('A connection error occurred')
+        except req_exceptions.Timeout:
+            logger.error('The request timed out')
+            raise ConnectorError('The request timed out')
+        except req_exceptions.RequestException:
+            logger.error('There was an error while handling the request')
+            raise ConnectorError('There was an error while handling the request')
+        except Exception as err:
+            raise ConnectorError(str(err))
 
 
 def _check_health(config):

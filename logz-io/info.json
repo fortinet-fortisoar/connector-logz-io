@@ -3,13 +3,14 @@
     "version": "1.0.0",
     "label": "Logz.io",
     "description": "Logz.io delivers unified, full stack observability and security as a fully-managed SaaS based on best-of-breed open source. The Open 360 platform brings together logs, metrics, traces, and security data, applying powerful AI/ML features to improve troubleshooting, reduce response times, and help manage costs.",
-    "publisher": "SpryIQ.co",
+    "publisher": "Fortinet",
+    "contributor": "SpryIQ.co",
+    "cs_approved": false,
+    "cs_compatible": true,
     "icon_small_name": "small.png",
     "icon_large_name": "large.png",
-    "help_online": "https://github.com/jitesh-spryiq/connector-logz-io/blob/develop/docs/LogzIoDoc.md",
-    "category": [
-        "Analytics and SIEM"
-    ],
+    "help_online": "https://github.com/fortinet-fortisoar/connector-logz-io/blob/release/1.0.0/docs/LogzIoConnectorDoc.md",
+    "category": "Analytics and SIEM",
     "configuration": {
         "fields": [
             {
@@ -33,12 +34,23 @@
                 "value": "",
                 "tooltip": "Specify the API key to access the endpoint to which you will connect and perform the automated operations.",
                 "description": "Specify the API key to access the endpoint to which you will connect and perform the automated operations."
+            },
+            {
+                "title": "Verify SSL",
+                "name": "verify_ssl",
+                "description": "Specifies whether the SSL certificate for the server is to be verified. By default, this option is selected, i.e., set to True.",
+                "tooltip": "Specifies whether the SSL certificate for the server is to be verified.",
+                "type": "checkbox",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "value": true
             }
         ]
     },
     "operations": [
         {
-            "title": "Retrieve All Alerts",
+            "title": "Get Alerts List",
             "operation": "retrieve_all_alerts",
             "description": "Returns the complete list of all alerts configured for the account.",
             "annotation": "retrieve_all_alerts",
@@ -134,9 +146,9 @@
             "open": false
         },
         {
-            "title": "Retrieve Alert By ID",
+            "title": "Get Alert By ID",
             "operation": "retrieve_alert_by_id",
-            "description": "Returns alert details by alert ID.",
+            "description": "Retrieves the alert details based on the alert ID that you have specified.",
             "annotation": "retrieve_alert_by_id",
             "category": "investigation",
             "output_schema": [
@@ -311,9 +323,9 @@
             ]
         },
         {
-            "title": "Get List Of Insights",
+            "title": "Get Insights List",
             "operation": "get_list_of_insights",
-            "description": "Get the list of Insights that match your search criteria.",
+            "description": "Retrieves the detailed list of insights based on the parameters that you have specified.",
             "annotation": "get_list_of_insights",
             "category": "investigation",
             "output_schema": [
@@ -367,15 +379,15 @@
                     "description": "UNIX timestamp in milliseconds specifying the end date for the query time frame."
                 },
                 {
-                    "title": "From",
+                    "title": "Offset",
                     "type": "integer",
                     "name": "from",
                     "required": false,
                     "visible": true,
                     "editable": true,
                     "value": "0",
-                    "tooltip": "The results found, the first result to return. Must be a non-negative integer.",
-                    "description": "The results found, the first result to return. Must be a non-negative integer."
+                    "tooltip": "Specify the offset that is starting index from where the records should be fetched.",
+                    "description": "Specify the offset that is starting index from where the records should be fetched."
                 },
                 {
                     "title": "Size",
@@ -385,8 +397,8 @@
                     "visible": true,
                     "editable": true,
                     "value": "10",
-                    "tooltip": "Number of results to return. Must be a positive integer between 1-100.",
-                    "description": "Number of results to return. Must be a positive integer between 1-100."
+                    "tooltip": "Specify the maximum number of records to return. Must be a positive integer between 1-100.",
+                    "description": "Specify the maximum number of records to return. Must be a positive integer between 1-100."
                 },
                 {
                     "title": "Insight Types",
@@ -452,14 +464,14 @@
                     ]
                 },
                 {
-                    "title": "asc",
+                    "title": "Sort Order",
                     "type": "checkbox",
                     "name": "asc",
                     "required": false,
                     "visible": true,
                     "editable": true,
-                    "tooltip": "If false, sorts Insights in descending order. The order depends on the selected sortBy parameter.",
-                    "description": "If false, sorts Insights in descending order. The order depends on the selected sortBy parameter."
+                    "tooltip": "Select the checkbox to sort in ascending order. The sorting of records is done on the field specified in Sort By parameter.",
+                    "description": "Select the checkbox to sort in ascending order. The sorting of records is done on the field specified in Sort By parameter."
                 },
                 {
                     "title": "Search",
@@ -476,7 +488,7 @@
             "open": false
         },
         {
-            "title": "Fetch Security Events",
+            "title": "Get Security Events List",
             "operation": "fetch_security_events",
             "description": "Runs a search query in your Logz.io Cloud SIEM account to fetch the security events that match the query parameters.",
             "annotation": "fetch_security_events",
@@ -538,7 +550,7 @@
                     "value": ""
                 },
                 {
-                    "title": "includeMutedEvents",
+                    "title": "Include Muted Events",
                     "type": "checkbox",
                     "description": "Defines if muted events need to be passed. The endpoint will return both non-muted and muted events if this is set to true.",
                     "name": "_source",
@@ -549,9 +561,10 @@
                     "tooltip": "Defines if muted events need to be passed. The endpoint will return both non-muted and muted events if this is set to true."
                 },
                 {
-                    "title": "Field",
+                    "title": "Sort By",
                     "type": "select",
-                    "description": "Sort by date and/or severity. Order determines secondary sorting.",
+                    "description": "Specify the sort by value to sort the records.",
+                    "tooltip": "Specify the sort by value to sort the records.",
                     "name": "field",
                     "options": [
                         "DATE",
@@ -563,15 +576,15 @@
                     "value": "SEVERITY"
                 },
                 {
-                    "title": "Descending",
+                    "title": "Sort Order",
                     "type": "checkbox",
-                    "description": "If left blank, descending sorting will result. If false results in ascending sorting.",
+                    "description": "Select the checkbox to sort in descending order. The sorting of records is done on the field specified in Sort By parameter.",
                     "name": "descending",
                     "required": false,
                     "visible": true,
                     "editable": true,
                     "value": true,
-                    "tooltip": "If left blank, descending sorting will result. If false results in ascending sorting."
+                    "tooltip": "Select the checkbox to sort in descending order. The sorting of records is done on the field specified in Sort By parameter."
                 },
                 {
                     "title": "Page Number",
@@ -598,9 +611,9 @@
             ]
         },
         {
-            "title": "Delete Alert",
+            "title": "Delete Alert By ID",
             "operation": "delete_an_alert",
-            "description": "Returns the complete list of all alerts configured for the account.",
+            "description": "Delete alert based on the alert ID that you have specified.",
             "annotation": "delete_an_alert",
             "category": "investigation",
             "parameters": [
